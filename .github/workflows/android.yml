@@ -122,7 +122,7 @@ jobs:
           retention-days: 7
 
       - name: Carica auto-update su Dropbox
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HA_DROPBOX == 'true'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && env.HA_DROPBOX == 'true'
         env:
           DROPBOX_APP_KEY: ${{ secrets.DROPBOX_APP_KEY }}
           DROPBOX_APP_SECRET: ${{ secrets.DROPBOX_APP_SECRET }}
@@ -151,7 +151,7 @@ jobs:
 
       # tag del codice sorgente di questa versione (link «Codice sorgente» nell'app: /tree/v<versione>)
       - name: Tag della versione
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HA_DROPBOX == 'true'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && env.HA_DROPBOX == 'true'
         run: |
           VERSIONE=$(grep -m1 '^version:' pubspec.yaml | sed 's/version: //' | tr -d ' \r')
           NOME=${VERSIONE%%+*}

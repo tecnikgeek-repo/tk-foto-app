@@ -1,0 +1,70 @@
+name: tkfoto
+description: "tk-foto per Android e iPhone: scontorna e prepara le foto dei prodotti, software libero AGPL-3.0."
+publish_to: 'none'
+
+version: 2.3.2+32
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  http: ^1.6.0
+  url_launcher: ^6.3.3
+  share_plus: ^13.3.1
+  package_info_plus: ^10.2.2
+  open_filex: ^4.7.0
+  path_provider: ^2.1.6
+  image_picker: ^1.2.3
+  image: ^4.12.0
+  gal: ^2.3.3
+  shared_preferences: ^2.5.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  # carattere dell'app: Plus Jakarta Sans (SIL Open Font License, assets/font/OFL.txt)
+  fonts:
+    - family: Jakarta
+      fonts:
+        - asset: assets/font/PlusJakartaSans-400.ttf
+          weight: 400
+        - asset: assets/font/PlusJakartaSans-500.ttf
+          weight: 500
+        - asset: assets/font/PlusJakartaSans-700.ttf
+          weight: 700
+        - asset: assets/font/PlusJakartaSans-800.ttf
+          weight: 800
+  assets:
+    # testo della licenza dell'app (pagina Licenze e codice sorgente)
+    - assets/licenze/COPYING-AGPL-3.0.txt
+    # foto di prova della vetrina prima/dopo in home (Canva: flacone sul bancone e il suo ritaglio)
+    - assets/demo/
+    # sfondi fotografici a tema (generati con Canva, importati da tools/importa_sfondi.py)
+    - assets/sfondi/natale/
+    - assets/sfondi/sanvalentino/
+    - assets/sfondi/pasqua/
+    - assets/sfondi/primavera/
+    - assets/sfondi/ferragosto/
+    - assets/sfondi/autunno/
+    - assets/sfondi/halloween/
+    - assets/sfondi/blackfriday/
+    - assets/sfondi/festamamma/
+    - assets/sfondi/saldiestivi/
+    - assets/sfondi/matrimonio/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icona.png
+  adaptive_icon_background: "#0F172A"
+  adaptive_icon_foreground: assets/icona-adattiva.png
+  remove_alpha_ios: true

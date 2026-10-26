@@ -1,4 +1,4 @@
-// Scritte sopra la foto finita, come in Photoroom: titolo, prezzo (etichetta), sconto (bollino), scritta libera.
+// Scritte sopra la foto finita: titolo, prezzo (etichetta), sconto (bollino), scritta libera.
 // Posizione e grandezza sono in frazioni della tela, quindi l'anteprima e il file salvato vengono uguali.
 import 'dart:math';
 

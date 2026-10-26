@@ -50,6 +50,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        TkAggiornamento.registra(flutterEngine, this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "tkfoto/scontorno").setMethodCallHandler { call, result ->
             when (call.method) {
                 "scontorna" -> {

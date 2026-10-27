@@ -72,7 +72,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-mlkit-subject-segmentation:16.0.0-beta1")
     implementation("com.google.android.gms:play-services-base:18.5.0")
     // scontorno buono: IS-Net (modello open source, scaricato dall'app al primo avvio) con ONNX Runtime
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.20.0")
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.31.1") // 1.20 non era allineata a 16 kB (Play la rifiuta)
     // foto girate come le ha scattate il telefono
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 }

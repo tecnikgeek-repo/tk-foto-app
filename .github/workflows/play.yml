@@ -73,8 +73,16 @@ jobs:
           echo "Permesso di installare APK assente"
           if grep -qE 'READ_MEDIA_(IMAGES|VIDEO|AUDIO)|READ_EXTERNAL_STORAGE' manifest.pb; then echo "::error::Permessi su foto e video ancora nel pacchetto (Play li vuole solo per le gallerie)"; exit 1; fi
           echo "Permessi su foto, video e audio assenti"
+          python3 tools/controlla_16kb.py "$AAB"
           VERSIONE=$(grep -m1 '^version:' pubspec.yaml | sed 's/version: //' | tr -d ' \r')
           mkdir -p dist && cp "$AAB" "dist/tk-foto-${VERSIONE%%+*}-play.aab"
+      # schermate per la scheda dello Store (1080×1920) con le foto vere della vetrina
+      - run: flutter test --dart-define=STORE=true test/store_test.dart
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tkfoto-store
+          path: build/store/*.png
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         with:
           name: tkfoto-aab

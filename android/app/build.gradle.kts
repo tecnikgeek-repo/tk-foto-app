@@ -45,6 +45,12 @@ android {
         }
     }
 
+    // versione per il Play Store (play.yml, TK_PLAY=1): il manifest di src/play toglie il permesso di installare APK.
+    // Stesso pacchetto e stessa chiave: chi ha l'app da Dropbox si aggiorna da Play senza disinstallare.
+    if (System.getenv("TK_PLAY") == "1") {
+        sourceSets.getByName("release").manifest.srcFile("src/play/AndroidManifest.xml")
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.findByName("tk") ?: signingConfigs.getByName("debug")
@@ -66,7 +72,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-mlkit-subject-segmentation:16.0.0-beta1")
     implementation("com.google.android.gms:play-services-base:18.5.0")
     // scontorno buono: IS-Net (modello open source, scaricato dall'app al primo avvio) con ONNX Runtime
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.20.0")
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.31.1") // 1.20 non era allineata a 16 kB (Play la rifiuta)
     // foto girate come le ha scattate il telefono
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 }

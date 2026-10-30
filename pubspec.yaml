@@ -2,7 +2,7 @@ name: tkfoto
 description: "tk-foto per Android e iPhone: scontorna e prepara le foto dei prodotti, software libero AGPL-3.0."
 publish_to: 'none'
 
-version: 2.3.6+36
+version: 2.3.8+38
 
 environment:
   sdk: ^3.13.0

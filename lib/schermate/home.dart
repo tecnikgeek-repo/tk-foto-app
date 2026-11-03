@@ -20,10 +20,11 @@ import 'editor.dart';
 const fotoPerLotto = 30;
 
 /// Frasi in più del benvenuto: cosa va in rete per lo scontorno.
-const righeBenvenutoFoto = [
+final righeBenvenutoFoto = [
   'Lo scontorno si fa **sul telefono**: le tue foto non vengono caricate da nessuna parte.',
-  'Su Android, dopo questa schermata, l\'app scarica una volta sola il **modello di scontorno IS-Net** (46 MB, '
-      'licenza Apache 2.0); finché non c\'è, lavora ML Kit di Google, che Google Play scarica alla prima foto.',
+  if (Platform.isAndroid)
+    'Su Android, dopo questa schermata, l\'app scarica una volta sola il **modello di scontorno IS-Net** (46 MB, '
+        'licenza Apache 2.0); finché non c\'è, lavora ML Kit di Google, che Google Play scarica alla prima foto.',
 ];
 
 /// Schede dati di Informazioni: scontorno, sfondi, stile ricordato.

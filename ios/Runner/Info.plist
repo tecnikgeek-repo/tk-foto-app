@@ -5,7 +5,7 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>it</string>
 	<key>CFBundleDisplayName</key>
 	<string>tk-foto</string>
 	<key>CFBundleExecutable</key>
@@ -74,5 +74,9 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>it</string>
+	</array>
 </dict>
 </plist>

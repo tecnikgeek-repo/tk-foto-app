@@ -98,7 +98,7 @@ class _SchermataHomeState extends State<SchermataHome> {
       final f = await _scegli.pickImage(source: ImageSource.camera);
       if (f != null && mounted) await _apri([f.path], sfondo: sfondo);
     } catch (e) {
-      if (mounted) avviso(context, 'Fotocamera non disponibile: $e');
+      if (mounted) avviso(context, fraseErrore('Fotocamera non disponibile.', e));
     }
   }
 
@@ -109,7 +109,7 @@ class _SchermataHomeState extends State<SchermataHome> {
       if (scelte.length > fotoPerLotto) avviso(context, 'Ne preparo $fotoPerLotto alla volta: le altre al prossimo giro');
       await _apri([for (final f in scelte.take(fotoPerLotto)) f.path], sfondo: sfondo);
     } catch (e) {
-      if (mounted) avviso(context, 'Galleria non disponibile: $e');
+      if (mounted) avviso(context, fraseErrore('Galleria non disponibile.', e));
     }
   }
 

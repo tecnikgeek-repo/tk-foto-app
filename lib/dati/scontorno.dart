@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'composizione.dart';
 import 'modello.dart';
 import 'scritte.dart';
+import '../kit_tk.dart';
 
 const _canale = MethodChannel('tkfoto/scontorno');
 
@@ -76,7 +77,7 @@ Future<void> scontorna(Foto foto, {void Function(String)? stato}) async {
         }
         foto.errore = e.code == 'MODELLO'
             ? 'Lo scontorno non è ancora pronto: controlla la connessione e riprova'
-            : (e.message ?? e.code);
+            : fraseErrore('Scontorno non riuscito.', e);
         return;
       }
     }
@@ -97,7 +98,7 @@ Future<void> scontorna(Foto foto, {void Function(String)? stato}) async {
       ..area = area
       ..diritta = diritta;
   } catch (e) {
-    foto.errore = 'Scontorno non riuscito: $e';
+    foto.errore = fraseErrore('Scontorno non riuscito.', e);
   } finally {
     foto.inCorso = false;
   }

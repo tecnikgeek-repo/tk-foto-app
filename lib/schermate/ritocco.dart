@@ -323,7 +323,7 @@ class _SchermataRitoccoState extends State<SchermataRitocco> {
       await File(percorso).writeAsBytes(png);
       if (mounted) Navigator.of(context).pop<RitaglioRitoccato>((percorso, area));
     } catch (e) {
-      if (mounted) avviso(context, 'Non riesco a salvare il ritocco: $e');
+      if (mounted) avviso(context, fraseErrore('Non riesco a salvare il ritocco.', e));
     } finally {
       if (mounted) setState(() => _salva = false);
     }

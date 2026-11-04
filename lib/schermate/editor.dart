@@ -260,7 +260,7 @@ class _SchermataEditorState extends State<SchermataEditor> {
     try {
       return await preparaFile(_foto, _stile, avanzamento: (n) => fatte.value = n);
     } catch (e) {
-      if (mounted) avviso(context, 'Non riesco a preparare le foto: $e');
+      if (mounted) avviso(context, fraseErrore('Non riesco a preparare le foto.', e));
       return null;
     } finally {
       if (mounted) Navigator.of(context).pop();
@@ -276,7 +276,7 @@ class _SchermataEditorState extends State<SchermataEditor> {
         festeggia(context, file.length == 1 ? 'Salvata in galleria' : '${file.length} foto salvate in galleria');
       }
     } catch (e) {
-      if (mounted) avviso(context, 'Salvataggio non riuscito: $e');
+      if (mounted) avviso(context, fraseErrore('Salvataggio non riuscito.', e));
     }
   }
 
@@ -286,7 +286,7 @@ class _SchermataEditorState extends State<SchermataEditor> {
     try {
       await condividi(file);
     } catch (e) {
-      if (mounted) avviso(context, 'Condivisione non riuscita: $e');
+      if (mounted) avviso(context, fraseErrore('Condivisione non riuscita.', e));
     }
   }
 
